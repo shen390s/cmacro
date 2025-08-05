@@ -1,0 +1,21 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+(progn ;;init forms
+  (ros:ensure-asdf)
+  #+quicklisp(ql:quickload '(:split-sequence :trivial-types :anaphora :esrap :yason) :silent t)
+  )
+
+(asdf:load-system :cmacro)
+
+(defpackage :ros.script.cmacro.3963352934
+  (:use :cl))
+
+(in-package :ros.script.cmacro.3963352934)
+
+(defun main (&rest args)
+  (cmacro:main args))
+
+;;; vim: set ft=lisp lisp:

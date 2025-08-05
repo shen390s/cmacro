@@ -64,7 +64,7 @@
 
 (defun main (args)
   (let ((files       (mapcar #'parse-namestring
-                             (files (cdr args)
+                             (files args
                                     (list "-n" "--no-expand"))))
         (output-file (get-opt-value args "-o" "--output"))
         (no-expand   (get-binary-opt args "-n" "--no-expand"))
